@@ -11,7 +11,7 @@
     <body>
         <header class="site-header fixed-top">
             <nav class="navbar navbar-expand-lg container">
-                <a class="navbar-brand fw-bold" href="#">Dwes.HopTo.Org</a>
+                <a class="navbar-brand fw-bold" href="{{ route('index') }}">Dwes.HopTo.Org</a>
                 <button class="navbar-toggler border-0" type="button"
                         data-bs-toggle="collapse" data-bs-target="#mainNav"
                         aria-controls="mainNav" aria-expanded="false" aria-label="Menú">
@@ -31,6 +31,7 @@
                             </form>
                         @else
                             <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Iniciar sesión</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Darse de alta</a></li>
                         @endauth
                     </ul>
                 </div>
