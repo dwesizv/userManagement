@@ -7,6 +7,7 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('assets/style/style.css') }}">
+        @yield('css')
     </head>
     <body>
         <header class="site-header fixed-top">
@@ -38,6 +39,24 @@
             </nav>
         </header>
         <main class="container py-5">
+            @error('error')
+            <div class="row">
+                <div class="col-md-12 mx-auto">
+                    <div class="alert alert-danger" role="alert">
+                        {{ $message }}
+                    </div>
+                </div>
+            </div>
+            @enderror
+            @session('success')
+            <div class="row">
+                <div class="col-md-12 mx-auto">
+                    <div class="alert alert-info" role="alert">
+                        {{ session('success') }}
+                    </div>
+                </div>
+            </div>
+            @endsession
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     @section('content')
@@ -47,7 +66,7 @@
                         El header es sticky y el footer queda siempre al fondo.
                     </p>
                     <p class="lead">
-                        Ruta para crear la contraseña de la aplicación de gmail:
+                        Ruta para crear la contraseña de la aplicación de gmail, una vez habilitada la verificación en dos pasos:
                         <a href="https://myaccount.google.com/apppasswords" target="_blank">https://myaccount.google.com/apppasswords</a>.
                     </p>
                     <div class="alert alert-info" role="alert">
@@ -71,5 +90,6 @@
             </div>
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        @yield('script')
     </body>
 </html>
